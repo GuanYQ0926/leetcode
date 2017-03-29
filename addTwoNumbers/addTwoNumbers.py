@@ -5,4 +5,6 @@ class ListNode(object):
         self.next = None
 
 
-def addTwoNumbers(l1, l2):
+class Solution(object):
+
+    def addTwoNumbers(self, l1, l2):
