@@ -5,16 +5,27 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[List[int]]
         """
-        results = []
+        res = []
+        nums.sort()
         for i in xrange(len(nums) - 2):
-            for j in xrange(i + 1, len(nums) - 1):
-                for k in xrange(j + 1, len(nums)):
-                    if nums[i] + nums[j] + nums[k] == 0:
-                        temp_re = [nums[i], nums[j], nums[k]]
-                        temp_re.sort()
-                        if temp_re not in results:
-                            results.append(temp_re)
-        return results
+            if i > 0 and nums[i] == nums[i - 1]:
+                continue
+            l, r = i + 1, len(nums) - 1
+            while l < r:
+                s = nums[i] + nums[l] + nums[r]
+                if s < 0:
+                    l += 1
+                elif s > 0:
+                    r -= 1
+                else:
+                    res.append((nums[i], nums[l], nums[r]))
+                    while l < r and nums[l] == nums[l + 1]:
+                        l += 1
+                    while l < r and nums[r] == nums[r - 1]:
+                        r -= 1
+                    l += 1
+                    r -= 1
+        return res
 
 
 if __name__ == '__main__':
