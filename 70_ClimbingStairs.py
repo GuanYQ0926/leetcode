@@ -24,7 +24,6 @@ class Solution(object):
                 temp = prev_count + pprev_count
                 pprev_count = prev_count
                 prev_count = temp
-                print temp
             return prev_count
 
 
