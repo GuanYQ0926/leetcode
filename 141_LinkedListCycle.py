@@ -15,7 +15,7 @@ class Solution(object):
         """
         current = head
         lead = head
-        while current and lead:
+        while current and lead and lead.next:
             current = current.next
             lead = lead.next.next
             if current == lead:
