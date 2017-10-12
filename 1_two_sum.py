@@ -13,4 +13,4 @@ def twoSum(nums, target):
 
 
 if __name__ == '__main__':
-    print(twoSUm([3, 2, 4], 6))
+    print(twoSum([3, 2, 4], 6))
